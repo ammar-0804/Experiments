@@ -4,45 +4,34 @@ Q. An array contains 10 elements. Given a number "x" that may occur several time
 
    soln:
 
-#include <stdio.h>
-
-int main()
-{
-    int size, i, dupli;
-    
-    printf("Enter the size of the array: ");
-    scanf("%d", &size);
-    int arr[size];
-    printf("Enter the array elements:\n");
-    for(i = 0; i < size; i++)
-    {
-        scanf("%d", &arr[i]);
-    }
-
-    printf("Enter the value of x: ");
-    scanf("%d", &dupli);
-    int occindex=0;
-    int count = 0;
-    int position = 1;
-
-    for(i = 0; i < size; i++)
-    {       if(arr[i] == dupli)
-        {
-            count++;
-            if(occindex == -1)
-            {
-                position = i; 
-               int occindex = i-1;
-            }  }
-    }
-    if(count > 0)
-    {    printf("Occurrence of %d = %d\n", dupli, count);
-        printf("First occurrence position = %d\n", position);
-        printf("The first index of occurence is:%d",occindex);}
-    else
-    {
-        printf("%d is not present in the array.\n", dupli);
-    }
-
-    return 0;
-}
+#include<stdio.h> 
+int main(){ 
+ int size, dupli, count=0, occur=-1,index; 
+ printf("Enter the number of elements in an array: "); 
+ scanf("%d", &size); 
+ 
+ int arr[size]; 
+ for(int i=0;i<size;i++){ 
+ printf("Enter number %d: ", (i+1)); 
+ scanf("%d", &arr[i]); 
+ } 
+ printf("Enter target element: "); 
+ scanf("%d", &dupli); 
+ for(int i=0;i<size;i++){ 
+ if(dupli == arr[i]){ 
+ count++; 
+ if(occur<0){ 
+ occur = i+1; 
+ } 
+ } 
+ 
+ } 
+ if(count>1){ 
+ printf("The duplication of %d is:%d\n", dupli, count); 
+ printf("The first position of occurence is %d.\n", occur); 
+ } 
+ else{ 
+ printf("No duplication found"); 
+ } 
+ return 0; 
+} 
